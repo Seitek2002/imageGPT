@@ -1,0 +1,160 @@
+.side-menu {
+  z-index: 1;
+  height: 100%;
+  position: static;
+  border-right: 1px solid #d1d5db;
+  width: 482px;
+  padding: 24px 40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: white;
+  transition: left 0.3s ease-in-out;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #888; /* Цвет ползунка */
+    border-radius: 4px; /* Закругление краёв */
+  }
+
+  /* Фон скроллбара */
+  &::-webkit-scrollbar-track {
+    background: #f0f0f0; /* Цвет фона дорожки */
+    border-radius: 4px;
+  }
+
+  .logo {
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 5px;
+  }
+
+  h2 {
+    font-size: 16px;
+    font-weight: 500;
+    color: #07203A;
+  }
+
+  .side-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    .burger-icon {
+      cursor: pointer;
+      width: 20px;
+    }
+  }
+}
+
+.side-close-bg {
+  position: fixed;
+  width: 0;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: #000;
+  opacity: 0.5;
+  transition: 0.3s;
+  display: none;
+  z-index: 1;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+
+  &.open {
+    width: 100%;
+  }
+}
+
+.right {
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #07203A;
+}
+
+.custom {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #767676;
+}
+
+.acc {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 40px;
+}
+
+@media (max-width: 920px) {
+  .side-menu {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .side-menu {
+    position: fixed;
+    left: -100%;
+    top: 0;
+    width: 80%;
+    max-width: 320px;
+    height: 100dvh;
+    background: white;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+
+    .logo {
+      width: 90%;
+    }
+  }
+
+  .side-menu.open {
+    left: 0;
+  }
+
+  .burger-menu {
+    display: block;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+}
+
+@media (min-width: 768px) {
+  .burger-menu {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .side-menu {
+    h1 {
+      font-size: 24px;
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .side-menu {
+    width: 90%;
+    max-width: unset;
+    padding: 15px;
+    .logo {
+      width: 80%;
+    }
+  }
+
+  .side-header {
+    justify-content: space-between;
+  }
+}

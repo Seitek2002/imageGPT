@@ -1,0 +1,79 @@
+.tabs-wrapper {
+  margin-top: 20px;
+
+  h4 {
+    font-size: 14px;
+    font-weight: 500;
+    margin: 15px 0;
+  }
+
+  .tabs-name {
+    overflow: hidden;
+    width: 58%;
+    display: block;
+    top: 21px;
+    left: 24%;
+    position: absolute;
+  }
+
+  .tabs-item {
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: black;
+    gap: 12px;
+    font-weight: 400;
+    font-size: 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    border-radius: 8px;
+    padding: 17px 12px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+    box-sizing: border-box;
+    cursor: pointer;
+    border: 1px solid #d1d5db;
+
+    &:hover {
+      background: rgba($color: #c3c3c3, $alpha: 0.5);
+    }
+
+    &.active {
+      border: 1px solid #46A2F0;
+    }
+  }
+}
+.tabs-avatar {
+  img{
+
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+  }
+}
+.tabs-content {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.tabs-date {
+  position: absolute;
+  bottom: 20%;
+  border-radius: 5px;
+  padding: 3px;
+  font-size: 10px;
+  left: 23%;
+  color: #a59f9f;
+}
+
+.tabs-remove {
+  position: absolute;
+  right: 15px;
+  top: 32%;
+
+  svg {
+    width: 16px;
+  }
+}

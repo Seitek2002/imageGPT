@@ -1,0 +1,30 @@
+.segments {
+  display: flex;
+  width: 100%;
+  margin: auto auto 0;
+  border: 1px solid #d1d5db;
+  padding: 4px 6px;
+  border-radius: 8px;
+  margin-top: 30px;
+  box-sizing: border-box;
+  background: #A0B9CD33;
+
+  .segment {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 12px;
+    width: 50%;
+    padding: 8px 0;
+    cursor: pointer;
+    border-radius: 12px;
+    font-size: 14px;
+    color: #2D465B;
+
+    &.active {
+      background-color: #005CAA;
+      color: #fff;
+    }
+  }
+}

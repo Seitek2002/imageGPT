@@ -1,0 +1,77 @@
+.modes {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  form {
+    display: flex;
+    margin-top: 24px;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+}
+
+.mode-radio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  img {
+    width: 44px;
+    border-radius: 8px;
+  }
+}
+
+.mode {
+  display: flex;
+  align-items: start;
+  gap: 12px;
+  border: 1px solid #e8e8e8;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+
+  &.active {
+    border-color: #1874fd;
+  }
+
+  h3 {
+    font-size: 14px;
+    line-height: 140%;
+  }
+
+  p {
+    color: #767676;
+    margin-top: 2px;
+    font-size: 12px;
+    max-width: 334px;
+    line-height: 120%;
+  }
+
+  input:checked {
+    background-image: url('../../assets/icons/checkbox-checked.svg');
+  }
+
+  input {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    min-height: 24px;
+    margin-top: 0.25em;
+    vertical-align: top;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url('../../assets/icons/checkbox.svg');
+    border-radius: 50%;
+    appearance: none;
+  }
+}

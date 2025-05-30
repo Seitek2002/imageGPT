@@ -1,0 +1,17 @@
+.wrapper {
+  display: flex;
+  width: 100%;
+  height: var(--app-height);
+  overflow: hidden;
+}
+
+.texting {
+  width: 46px;
+  border-radius: 5px;
+}
+
+.main {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
