@@ -4,7 +4,7 @@ export const ChatApi = createApi({
   reducerPath: 'chatApi',
 
   baseQuery: fetchBaseQuery({
-    baseUrl: `${window.location.origin}/api/v1/`,
+    baseUrl: 'https://bakaigpt.operator.kg//api/v1/',
 
     prepareHeaders: (headers) => {
       const userData =

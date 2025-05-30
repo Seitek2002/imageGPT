@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const User = createApi({
   reducerPath: 'users',
   baseQuery: fetchBaseQuery({
-    baseUrl: `${window.location.origin}/api/v1/`,
+    baseUrl: 'https://bakaigpt.operator.kg//api/v1/',
   }),
   endpoints: (builder) => ({
     postUsers: builder.mutation({
