@@ -52,9 +52,9 @@ const DeleteModal = ({ onClose, onDelete }) => {
           </svg>
         </span>
         <h2 className='delete-modal__title'>
-          Вы уверены, что хотите удалить чат?
+          Вы уверены, что хотите удалить идею?
         </h2>
-        <h3 className='delete-modal__subtitle'>Чат невозможно восстановить после удаления</h3>
+        <h3 className='delete-modal__subtitle'>Идею невозможно восстановить после удаления</h3>
         <div className='delete-modal__btns'>
           <button className='delete-modal__cencell' onClick={onClose}>
             Отмена

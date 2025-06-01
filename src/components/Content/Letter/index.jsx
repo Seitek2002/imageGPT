@@ -78,16 +78,16 @@ const Letter = ({ isLoading, chatLoading, sendMessages, setMessages }) => {
       dispatch(setChat(data.id));
 
       await toast.promise(handleDelay(), {
-        loading: 'Создается новый чат...',
-        success: 'Новый чат создан!',
-        error: 'Ошибка при создании чата.',
+        loading: 'Создается новая идея...',
+        success: 'Новая идея создана!',
+        error: 'Ошибка при создании идеи.',
       });
 
       getChats();
       setUploadedFiles([]);
     } catch (error) {
-      console.error('Ошибка при создании чата:', error);
-      toast.error('Не удалось создать новый чат.');
+      console.error('Ошибка при создании идеи:', error);
+      toast.error('Не удалось создать новую идею.');
     }
   };
 

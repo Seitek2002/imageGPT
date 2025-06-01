@@ -44,7 +44,7 @@ const History = ({ chatsList, dispatch }) => {
     await deleteChatById(selectedChatId);
     dispatch(setChooseAssistant(false));
     setModal(false);
-    toast.success('Чат успешно удален');
+    toast.success('Идея успешно удалена');
   };
 
   const openModal = (id) => {
@@ -97,13 +97,13 @@ const History = ({ chatsList, dispatch }) => {
                   </span>
 
                   <span className='tabs-name' onClick={() => handleClick(item)}>
-                    {item.name || 'Новый чат'}
+                    {item.name || 'Новая идея'}
                   </span>
                 </span>
               );
             })
           ) : (
-            <div>Похоже, что у вас пока что нет истории чатов</div>
+            <div>Похоже, что у вас пока что не было идей</div>
           )}
         </div>
       </div>

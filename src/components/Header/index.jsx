@@ -14,9 +14,9 @@ const Header = ({ handleNotify }) => {
   const createChat = async () => {
     if (chooseAssistant) {
       dispatch(setChooseAssistant(false));
-      handleNotify('Чат успешно создан');
+      handleNotify('Идея успешно создана');
     } else {
-      handleNotify('У вас уже есть новый чат');
+      handleNotify('У вас уже есть новая идея');
     }
   };
 

@@ -7,13 +7,13 @@ const Segments = ({ setActiveSegment, activeSegment }) => {
         onClick={() => setActiveSegment('consultant')}
         className={`segment ${activeSegment === 'consultant' ? 'active' : ''}`}
       >
-        <span>Консультант</span>
+        <span>Идеи</span>
       </div>
       <div
         className={`segment ${activeSegment === 'history' ? 'active' : ''}`}
         onClick={() => setActiveSegment('history')}
       >
-        <span>История</span>
+        <span>Мои</span>
       </div>
     </div>
   );

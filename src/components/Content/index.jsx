@@ -26,7 +26,7 @@ const Content = () => {
       setMessages(data.messages);
       if (data?.assistant) dispatch(setActiveAssistant(data.assistant));
     } catch (error) {
-      console.error('Ошибка загрузки чата:', error);
+      console.error('Ошибка загрузки идеи:', error);
     }
   };
 

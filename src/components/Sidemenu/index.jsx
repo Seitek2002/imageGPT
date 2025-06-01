@@ -29,7 +29,7 @@ const Sidemenu = () => {
       ></div>
       <div className={`side-menu ${burgerMenu ? '' : 'open'}`}>
         <div className='side-header'>
-          <img src='/gpt-gradient.svg' alt='' className='logo' />
+          <img src='/imagegpt.png' alt='' className='logo' />
           {/* <h1>BakaiGPT</h1> */}
           {window.innerWidth <= 769 ? (
             <img src={burgerArrow} onClick={() => dispatch(toggleBurgerMenu())} className='burger-icon' />
@@ -48,7 +48,6 @@ const Sidemenu = () => {
             )}
             {activeSegment === 'consultant' && (
               <>
-                <h2>Выбрать эксперта</h2>
 
                 {isLoading ? (
                   <>
