@@ -11,7 +11,7 @@ export const useChatWebSocket = (chatId, id, hash) => {
     // Закрываем старый сокет перед открытием нового
     socketRef.current?.close();
 
-    const wsUrl = `wss://bakaigpt.operator.kg/ws/chats/${chatId}/?user_external_id=${id}&hash=${hash}`;
+    const wsUrl = `wss://imagegpt.operator.kg/ws/chats/${chatId}/?user_external_id=${id}&hash=${hash}`;
     const ws = new WebSocket(wsUrl);
     socketRef.current = ws;
 
