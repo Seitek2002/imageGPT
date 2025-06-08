@@ -28,14 +28,14 @@ const Header = ({ handleNotify }) => {
           className='burger-menu'
           onClick={() => dispatch(toggleBurgerMenu())}
         />
-        <img
+        {/* <img
           src={activeAssistant.photo}
           alt='logo-icon'
           className='logo-icon'
-        />
+        /> */}
         <div className='logo-detail'>
           <h2>{activeAssistant.name}</h2>
-          <span>Online</span>
+          {/* <span>Online</span> */}
         </div>
       </div>
       <div className='plus-wrapper' onClick={createChat}>
