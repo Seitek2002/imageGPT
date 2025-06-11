@@ -62,7 +62,8 @@ const Letter = ({ isLoading, chatLoading, sendMessages, setMessages }) => {
           type: f.type || 'file',
           file_id: f.file_id,
           filename: f.filename,
-        })),        
+          file_url: f.file_url,
+        })),
       };
       sendMessages(JSON.stringify(messageData));
       setUploadedFiles([]);
@@ -137,6 +138,7 @@ const Letter = ({ isLoading, chatLoading, sendMessages, setMessages }) => {
               file_id: response.file_id,
               filename: file.name,
               type: isImage ? 'image' : 'file',
+              file_url: response.file_url,
             },
           ]);
         } catch (error) {
