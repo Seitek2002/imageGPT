@@ -126,7 +126,6 @@ const Letter = ({ isLoading, chatLoading, sendMessages, setMessages }) => {
             '.gif',
             '.bmp',
             '.webp',
-            '.svg',
           ];
           const isImage = imageExtensions.some((ext) =>
             file.name.toLowerCase().endsWith(ext)
@@ -165,18 +164,50 @@ const Letter = ({ isLoading, chatLoading, sendMessages, setMessages }) => {
     <div>
       {uploadedFiles.length > 0 && (
         <div className='uploaded-files'>
-          {uploadedFiles.map((file, index) => (
-            <div className='uploaded-files__item' key={index}>
-              <img src={fileIcon} alt='file-icon' />
-              <span>{file.filename}</span>
-              <button
-                className='uploaded-files__item-remove'
-                onClick={() => handleRemoveFile(index)}
-              >
-                ×
-              </button>
-            </div>
-          ))}
+          {uploadedFiles.map((file, index) => {
+            // Проверяем, является ли файл изображением по типу или расширению
+            const imageExtensions = [
+              '.jpg',
+              '.jpeg',
+              '.png',
+              '.gif',
+              '.bmp',
+              '.webp',
+              '.svg'
+            ];
+            const isImage =
+              (file.type && file.type === 'image') ||
+              (file.filename &&
+                imageExtensions.some((ext) =>
+                  file.filename.toLowerCase().endsWith(ext)
+                ));
+
+            return (
+              <div className='uploaded-files__item' key={index}>
+                {isImage && file.file_url ? (
+                  <div>
+                    <img
+                      src={file.file_url}
+                      alt={file.filename || 'image'}
+                      style={{ borderRadius: '8px' }}
+                      className='linked-file-img'
+                    />
+                  </div>
+                ) : (
+                  <>
+                    <img src={fileIcon} alt='file-icon' />
+                    <span>{file.filename}</span>
+                  </>
+                )}
+                <button
+                  className='uploaded-files__item-remove'
+                  onClick={() => handleRemoveFile(index)}
+                >
+                  ×
+                </button>
+              </div>
+            );
+          })}
         </div>
       )}
       <div className='letter'>
