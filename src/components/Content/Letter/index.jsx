@@ -142,7 +142,13 @@ const Letter = ({ isLoading, chatLoading, sendMessages, setMessages }) => {
           ]);
         } catch (error) {
           console.error('Ошибка при загрузке файла:', error);
-          toast.error('Не удалось загрузить файл', { id: toastId });
+          // Попытка получить текст ошибки с сервера
+          let errorMsg =
+            (error && (error.data?.message || error.data?.detail || error.error || error.message)) ||
+            (error && typeof error === 'string' ? error : null) ||
+            'Не удалось загрузить файл';
+
+          toast.error(errorMsg, { id: toastId });
           setIsFileUploading(false);
         }
       }
