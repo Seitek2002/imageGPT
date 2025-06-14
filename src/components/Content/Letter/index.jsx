@@ -225,7 +225,7 @@ const Letter = ({ isLoading, chatLoading, sendMessages, setMessages }) => {
           id='letter'
           value={value}
           type='text'
-          placeholder='Ваш вопрос...'
+          placeholder='Ваша идея...'
           onFocus={onFocus}
           onChange={(e) => setValue(e.target.value)}
           onKeyUp={(e) => {
