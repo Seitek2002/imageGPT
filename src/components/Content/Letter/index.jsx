@@ -114,6 +114,8 @@ const Letter = ({ isLoading, chatLoading, sendMessages, setMessages }) => {
     if (files.length > 0) {
       setIsFileUploading(true);
 
+      let hasError = false;
+
       for (const file of files) {
         try {
           const response = await uploadFile(file).unwrap();
@@ -141,6 +143,7 @@ const Letter = ({ isLoading, chatLoading, sendMessages, setMessages }) => {
             },
           ]);
         } catch (error) {
+          hasError = true;
           console.error('Ошибка при загрузке файла:', error);
           // Попытка получить текст ошибки с сервера
           let errorMsg =
@@ -148,16 +151,16 @@ const Letter = ({ isLoading, chatLoading, sendMessages, setMessages }) => {
             (error && typeof error === 'string' ? error : null) ||
             'Не удалось загрузить файл';
 
-          toast.error(errorMsg, { id: toastId });
-          setIsFileUploading(false);
+          toast.error('Ошибка при загрузке файлов', { id: toastId });
         }
       }
+      e.target.value = null;
+
+      if (!hasError) {
+        toast.success('Файлы загружены!', { id: toastId });
+      }
+      setIsFileUploading(false);
     }
-
-    e.target.value = null;
-
-    toast.success('Файлы загружены!', { id: toastId });
-    setIsFileUploading(false);
   };
 
   const handleRemoveFile = (indexToRemove) => {
