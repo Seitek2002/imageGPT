@@ -51,7 +51,6 @@ const Letter = ({ isLoading, chatLoading, sendMessages, setMessages }) => {
     }
 
     const trimmedMessage = value.trim();
-    if (!trimmedMessage) return;
 
     setValue('');
 
