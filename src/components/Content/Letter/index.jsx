@@ -51,6 +51,7 @@ const Letter = ({ isLoading, chatLoading, sendMessages, setMessages }) => {
     }
 
     const trimmedMessage = value.trim();
+    if (!trimmedMessage || uploadedFiles.length === 0) return;
 
     setValue('');
 
