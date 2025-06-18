@@ -51,7 +51,8 @@ const Letter = ({ isLoading, chatLoading, sendMessages, setMessages }) => {
     }
 
     const trimmedMessage = value.trim();
-    if (!trimmedMessage || !uploadedFiles.length) return;
+
+    if (!trimmedMessage && uploadedFiles.length === 0) return;
 
     setValue('');
 
@@ -147,7 +148,11 @@ const Letter = ({ isLoading, chatLoading, sendMessages, setMessages }) => {
           console.error('Ошибка при загрузке файла:', error);
           // Попытка получить текст ошибки с сервера
           let errorMsg =
-            (error && (error.data?.message || error.data?.detail || error.error || error.message)) ||
+            (error &&
+              (error.data?.message ||
+                error.data?.detail ||
+                error.error ||
+                error.message)) ||
             (error && typeof error === 'string' ? error : null) ||
             'Не удалось загрузить файл';
 
@@ -182,7 +187,7 @@ const Letter = ({ isLoading, chatLoading, sendMessages, setMessages }) => {
               '.gif',
               '.bmp',
               '.webp',
-              '.svg'
+              '.svg',
             ];
             const isImage =
               (file.type && file.type === 'image') ||
