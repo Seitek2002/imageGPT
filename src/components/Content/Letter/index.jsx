@@ -29,16 +29,6 @@ const Letter = ({ isLoading, chatLoading, sendMessages, setMessages }) => {
   const handleDelay = () => {
     return new Promise((resolve) => {
       setTimeout(() => {
-        const messageData = {
-          text: value.trim(),
-          files: uploadedFiles.map((f) => ({
-            type: f.type || 'file',
-            file_id: f.file_id,
-            filename: f.filename,
-          })),
-        };
-        console.log(messageData);
-        sendMessages(JSON.stringify(messageData));
         resolve();
       }, 700);
     });
@@ -51,7 +41,6 @@ const Letter = ({ isLoading, chatLoading, sendMessages, setMessages }) => {
     }
 
     const trimmedMessage = value.trim();
-
     if (!trimmedMessage && uploadedFiles.length === 0) return;
 
     setValue('');
@@ -72,7 +61,17 @@ const Letter = ({ isLoading, chatLoading, sendMessages, setMessages }) => {
     }
 
     try {
-      setMessages([{ sender: 'user', content: trimmedMessage }]);
+      const messageData = {
+        text: trimmedMessage,
+        files: uploadedFiles.map((f) => ({
+          type: f.type || 'file',
+          file_id: f.file_id,
+          filename: f.filename,
+          file_url: f.file_url,
+        })),
+      };
+      console.log(messageData);
+      setMessages([{ sender: 'user', content: JSON.stringify(messageData) }]);
       dispatch(setChooseAssistant(true));
 
       setValue('');
@@ -84,6 +83,7 @@ const Letter = ({ isLoading, chatLoading, sendMessages, setMessages }) => {
         success: 'Новая идея создана!',
         error: 'Ошибка при создании идеи.',
       });
+      sendMessages(JSON.stringify(messageData));
 
       getChats();
       setUploadedFiles([]);
@@ -146,7 +146,6 @@ const Letter = ({ isLoading, chatLoading, sendMessages, setMessages }) => {
         } catch (error) {
           hasError = true;
           console.error('Ошибка при загрузке файла:', error);
-          // Попытка получить текст ошибки с сервера
           let errorMsg =
             (error &&
               (error.data?.message ||
