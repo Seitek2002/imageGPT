@@ -34,7 +34,6 @@ const History = ({ chatsList, dispatch }) => {
   const [deleteChatById] = useDeleteChatMutation();
 
   const handleClick = async (item) => {
-    console.log('changed');
     setSelectedChatId(item.id);
     dispatch(setChat(item.id));
     dispatch(toggleBurgerMenu());
