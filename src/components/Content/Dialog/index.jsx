@@ -43,7 +43,7 @@ const Message = ({ sender, content, files, activeAssistant }) => {
                   >
                     <svg
                       id='Capa_1'
-                      enable-background='new 0 0 515.283 515.283'
+                      enableBackground='new 0 0 515.283 515.283'
                       height='512'
                       viewBox='0 0 515.283 515.283'
                       width='512'

@@ -34,6 +34,7 @@ const History = ({ chatsList, dispatch }) => {
   const [deleteChatById] = useDeleteChatMutation();
 
   const handleClick = async (item) => {
+    console.log('changed');
     setSelectedChatId(item.id);
     dispatch(setChat(item.id));
     dispatch(toggleBurgerMenu());
@@ -70,6 +71,7 @@ const History = ({ chatsList, dispatch }) => {
                     item.id === selectedChatId ? 'active' : ''
                   }`}
                   key={item.id}
+                  onClick={() => handleClick(item)}
                 >
                   <span className='tabs-avatar'>
                     <img src={item.assistant.photo} alt='' />
@@ -96,9 +98,7 @@ const History = ({ chatsList, dispatch }) => {
                     </svg>
                   </span>
 
-                  <span className='tabs-name' onClick={() => handleClick(item)}>
-                    {item.name || 'Новая идея'}
-                  </span>
+                  <span className='tabs-name'>{item.name || 'Новая идея'}</span>
                 </span>
               );
             })

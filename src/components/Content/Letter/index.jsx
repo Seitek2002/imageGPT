@@ -70,7 +70,6 @@ const Letter = ({ isLoading, chatLoading, sendMessages, setMessages }) => {
           file_url: f.file_url,
         })),
       };
-      console.log(messageData);
       setMessages([{ sender: 'user', content: JSON.stringify(messageData) }]);
       dispatch(setChooseAssistant(true));
 
